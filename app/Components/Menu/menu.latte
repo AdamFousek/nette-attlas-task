@@ -1,0 +1,12 @@
+{block menu}
+<ul>
+{foreach $items as $item}
+    <li>
+        <a href="{$item->getUrl()}">{$item->getName()}</a>
+        {if count($item->getChildren())}
+            {include this, items => $item->getChildren()}
+        {/if}
+    </li>
+{/foreach}
+</ul>
+{/block}
